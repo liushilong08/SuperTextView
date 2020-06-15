@@ -22,7 +22,7 @@
 ## 2、 效果 [**Demo下载地址**]( https://fir.im/eft1)
 
 <p align="center">
-  <img src="http://osnoex6vf.bkt.clouddn.com/supertextview.jpg">
+  <img src="https://github.com/lygttpod/SuperTextView/blob/master/screen/supertextview_demo.png">
 </p>
 
 ## 3、如何使用
@@ -44,9 +44,9 @@
         compile 'com.github.lygttpod:SuperTextView:VERSION_CODE'
         }
 ```
-> ### 注意：VERSION_CODE为[![](https://jitpack.io/v/lygttpod/SuperTextView.svg)](https://jitpack.io/#lygttpod/SuperTextView)后面的数字，即最新的[release](https://github.com/lygttpod/SuperTextView/releases)版本号
+> ## 温馨提示：项目中部分代码使用kotlin写的，所以你的项目需要支持kotlin
 
-> ## 重写SuperTextView，功能更加全面，部分方法及属性有变更，1.x版本的老用户请注意
+> ### 注意：VERSION_CODE为[![](https://jitpack.io/v/lygttpod/SuperTextView.svg)](https://jitpack.io/#lygttpod/SuperTextView)后面的数字，即最新的[release](https://github.com/lygttpod/SuperTextView/releases)版本号
 
 ### 3.2、项目中如何使用
 #### 3.2.1、布局中如何使用（示例中只列出部分属性，开发者可根据具体需求使用其他属性）
@@ -390,17 +390,6 @@ sRightIconShowCircle | boolean  | 右边ImageView是否显示为圆形 | 默认f
 如果觉得对你有用的话，点一下右上的星星赞一下吧!
 
 ## 代码是最好的老师，更多详细用法请查看 [demo](https://github.com/lygttpod/SuperTextView/tree/master/app):feet:
-
-
-## 打赏支持
-
-如果您觉得 SuperTextView 开源库帮你节省了大量的开发时间，请扫描下方的二维码随意打赏，要是能打赏个 10.24 :monkey_face:就太:thumbsup:了。您的支持将鼓励我继续创作:octocat:
-
-
-<p align="center">
-  <img src="http://osnoex6vf.bkt.clouddn.com/pay.png" width="450">
-</p>
-
 
 
 # License

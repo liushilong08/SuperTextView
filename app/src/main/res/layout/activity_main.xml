@@ -102,7 +102,14 @@
                 android:id="@+id/super_shape"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="ShapeBuilder"
+                android:text="Shape&amp;Shadow"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/super_shadow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="阴影控件"
                 android:textAllCaps="false" />
 
         </LinearLayout>

@@ -3,6 +3,7 @@ package com.allen.library.shape
 import android.content.Context
 import android.support.v7.widget.AppCompatTextView
 import android.util.AttributeSet
+import com.allen.library.data.AttributeSetData
 import com.allen.library.helper.AttributeSetHelper
 import com.allen.library.helper.ShapeBuilder
 
@@ -15,10 +16,12 @@ import com.allen.library.helper.ShapeBuilder
  * </pre>
  */
 class ShapeTextView @JvmOverloads constructor(context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0) : AppCompatTextView(context, attrs, defStyleAttr) {
-    var shapeBuilder: ShapeBuilder = ShapeBuilder()
+    var shapeBuilder: ShapeBuilder? = null
+    var attributeSetData: AttributeSetData = AttributeSetData()
 
     init {
-        shapeBuilder = AttributeSetHelper().initShapeBuilderFromAttributeSet(context, attrs)
-        shapeBuilder.into(this)
+        attributeSetData = AttributeSetHelper().loadFromAttributeSet(context, attrs)
+        shapeBuilder = ShapeBuilder()
+        shapeBuilder?.init(this, attributeSetData)
     }
 }

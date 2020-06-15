@@ -6,6 +6,7 @@ import android.graphics.drawable.StateListDrawable
 import android.os.Build
 import android.support.v4.view.ViewCompat
 import android.view.View
+import com.allen.library.data.AttributeSetData
 
 /**
  * <pre>
@@ -114,6 +115,8 @@ class ShapeBuilder {
     private var selectorNormalColor: Int = 0
 
     private var useSelector: Boolean = false
+
+    private var targetView: View? = null
 
     fun setShapeType(shapeType: Int): ShapeBuilder {
         this.shapeType = shapeType
@@ -246,6 +249,36 @@ class ShapeBuilder {
     }
 
 
+    fun init(targetView: View, attributeSetData: AttributeSetData) {
+        setShapeType(attributeSetData.shapeType)
+        setShapeCornersRadius(attributeSetData.cornersRadius)
+        setShapeCornersTopLeftRadius(attributeSetData.cornersTopLeftRadius)
+        setShapeCornersTopRightRadius(attributeSetData.cornersTopRightRadius)
+        setShapeCornersBottomRightRadius(attributeSetData.cornersBottomRightRadius)
+        setShapeCornersBottomLeftRadius(attributeSetData.cornersBottomLeftRadius)
+        setShapeSolidColor(attributeSetData.solidColor)
+        setShapeStrokeColor(attributeSetData.strokeColor)
+        setShapeStrokeWidth(attributeSetData.strokeWidth)
+        setShapeStrokeDashWidth(attributeSetData.strokeDashWidth)
+        setShapeStrokeDashGap(attributeSetData.strokeDashGap)
+        setShapeUseSelector(attributeSetData.useSelector)
+        setShapeSelectorNormalColor(attributeSetData.selectorNormalColor)
+        setShapeSelectorPressedColor(attributeSetData.selectorPressedColor)
+        setShapeSelectorDisableColor(attributeSetData.selectorDisableColor)
+        setShapeSizeWidth(attributeSetData.sizeWidth)
+        setShapeSizeHeight(attributeSetData.sizeHeight)
+        setShapeGradientType(attributeSetData.gradientType)
+        setShapeGradientAngle(attributeSetData.gradientAngle)
+        setShapeGradientGradientRadius(attributeSetData.gradientGradientRadius)
+        setShapeGradientUseLevel(attributeSetData.gradientUseLevel)
+        setShapeGradientCenterX(attributeSetData.gradientCenterX)
+        setShapeGradientCenterY(attributeSetData.gradientCenterY)
+        setShapeGradientStartColor(attributeSetData.gradientStartColor)
+        setShapeGradientCenterColor(attributeSetData.gradientCenterColor)
+        setShapeGradientEndColor(attributeSetData.gradientEndColor)
+        into(targetView)
+    }
+
     private fun setShapeType(gradientDrawable: GradientDrawable) {
         if (shapeType != -1) {
             when (shapeType) {
@@ -291,7 +324,7 @@ class ShapeBuilder {
 
 
     private fun setSolidColor(gradientDrawable: GradientDrawable) {
-        if (solidColor != -1 && gradientStartColor == -1 && gradientEndColor == -1) {
+        if (gradientStartColor == -1 && gradientEndColor == -1) {
             gradientDrawable.setColor(solidColor)
         }
     }
@@ -395,7 +428,8 @@ class ShapeBuilder {
         return gradientDrawable
     }
 
-    fun into(view: View) {
+    fun into(view: View?) {
+        if (view == null) return
         ViewCompat.setBackground(view, if (useSelector) selectorDrawable else getDrawable(0))
     }
 
